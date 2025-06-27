@@ -1,9 +1,8 @@
-
 import { Users, Target, Trophy } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+    <section id="about" className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">

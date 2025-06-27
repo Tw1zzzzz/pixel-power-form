@@ -1,4 +1,5 @@
 
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
@@ -9,12 +10,25 @@ import ContactForm from "@/components/ContactForm";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
-      <About />
-      <Services />
-      <Games />
-      <Team />
-      <ContactForm />
+      <Navigation />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="services">
+        <Services />
+      </div>
+      <div id="games">
+        <Games />
+      </div>
+      <div id="team">
+        <Team />
+      </div>
+      <div id="contact">
+        <ContactForm />
+      </div>
     </div>
   );
 };

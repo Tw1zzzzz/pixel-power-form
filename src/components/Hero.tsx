@@ -16,8 +16,8 @@ const Hero = () => {
         <div className="animate-fade-in">
           <div className="flex items-center justify-center mb-6">
             <Gamepad2 className="w-16 h-16 text-red-500 mr-4 animate-pulse" />
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent">
-              CyberSport
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent">
+              Академия киберспорта
             </h1>
           </div>
           

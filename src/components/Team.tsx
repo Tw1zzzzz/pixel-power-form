@@ -6,17 +6,17 @@ const Team = () => {
     {
       name: "Петр Постников",
       role: "Тренер по киберспорту",
-      image: "/lovable-uploads/6d386677-8b75-4dac-ad9c-20434e11b59b.png"
+      image: "/lovable-uploads/956dbb6b-eb3f-4fc5-adb7-725d784ac601.png"
     },
     {
       name: "Константин Шарапов", 
       role: "Тренер по Dota2",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/e7a6a48a-a09e-4f7a-bf95-d3f418d5905e.png"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section id="team" className="py-20 bg-gradient-to-b from-gray-900 to-black">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
