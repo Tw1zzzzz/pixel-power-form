@@ -1,3 +1,4 @@
+
 import { Users, Target, Trophy } from "lucide-react";
 
 const About = () => {
@@ -40,8 +41,8 @@ const About = () => {
           <div className="relative animate-fade-in">
             <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl p-8 backdrop-blur-sm border border-gray-700">
               <img 
-                src="/lovable-uploads/4235687a-3f27-429a-9223-1e10b9d4e410.png" 
-                alt="Команда киберспортсменов" 
+                src="/lovable-uploads/7dea7584-2180-4606-9f65-105ed4260328.png" 
+                alt="Геймеры за игрой" 
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>

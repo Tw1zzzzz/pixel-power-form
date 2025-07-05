@@ -37,7 +37,7 @@ const ContactForm = () => {
             <img 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
               alt="Академия киберспорта"
-              className="w-12 h-12 object-contain mr-4"
+              className="w-16 h-16 object-contain mr-4"
             />
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Свяжитесь с нами

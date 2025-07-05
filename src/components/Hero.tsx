@@ -21,7 +21,7 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
               alt="Академия киберспорта"
-              className="w-16 h-16 object-contain mr-4 animate-pulse"
+              className="w-24 h-24 object-contain mr-6 animate-pulse"
             />
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent">
               Академия киберспорта
