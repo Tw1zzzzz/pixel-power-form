@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Send, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactForm = () => {
@@ -136,12 +136,22 @@ const ContactForm = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm hover:border-red-500 transition-all duration-300">
+            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm hover:border-purple-500 transition-all duration-300">
               <CardContent className="p-6 flex items-center">
-                <MapPin className="w-8 h-8 text-red-400 mr-4" />
+                <MessageCircle className="w-8 h-8 text-purple-400 mr-4" />
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Адрес</h3>
-                  <p className="text-gray-400">г. Москва, ул. Киберспортивная, д. 1</p>
+                  <h3 className="text-lg font-semibold text-white">Telegram</h3>
+                  <p className="text-gray-400">@cybersport_academy</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm hover:border-green-400 transition-all duration-300">
+              <CardContent className="p-6 flex items-center">
+                <MessageCircle className="w-8 h-8 text-green-400 mr-4" />
+                <div>
+                  <h3 className="text-lg font-semibold text-white">WhatsApp</h3>
+                  <p className="text-gray-400">+7 (999) 123-45-67</p>
                 </div>
               </CardContent>
             </Card>
