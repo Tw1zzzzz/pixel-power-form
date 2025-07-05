@@ -33,9 +33,16 @@ const ContactForm = () => {
     <section className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Свяжитесь с нами
-          </h2>
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
+              alt="Академия киберспорта"
+              className="w-12 h-12 object-contain mr-4"
+            />
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Свяжитесь с нами
+            </h2>
+          </div>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
             Профессиональное обучение киберспорту для всех возрастов. 
             Подберём игру и составим график занятий.

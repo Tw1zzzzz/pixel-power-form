@@ -1,10 +1,10 @@
 
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section id="hero" className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -18,7 +18,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
         <div className="animate-fade-in">
           <div className="flex items-center justify-center mb-6">
-            <Gamepad2 className="w-16 h-16 text-red-500 mr-4 animate-pulse" />
+            <img 
+              src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
+              alt="Академия киберспорта"
+              className="w-16 h-16 object-contain mr-4 animate-pulse"
+            />
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent">
               Академия киберспорта
             </h1>
