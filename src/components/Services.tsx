@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { User, Users, Headphones, GamepadIcon } from "lucide-react";
+import { User, Users, Headphones, Tv, Trophy, GraduationCap } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -21,6 +21,24 @@ const Services = () => {
       title: "Помощь в выборе игры",
       description: "Если вы еще не определились с игрой, наши специалисты помогут вам выбрать наиболее подходящий вариант для развития ваших киберспортивных навыков.",
       color: "from-green-500 to-teal-600"
+    },
+    {
+      icon: Tv,
+      title: "Трансляции и комментирование",
+      description: "Проводим трансляции игр и профессиональное комментирование турниров с детальным анализом игровых моментов.",
+      color: "from-purple-500 to-indigo-600"
+    },
+    {
+      icon: Trophy,
+      title: "Проведение турниров",
+      description: "Организуем и проводим киберспортивные турниры различного уровня для развития соревновательного опыта.",
+      color: "from-yellow-500 to-orange-600"
+    },
+    {
+      icon: GraduationCap,
+      title: "Киберспортивное обучение",
+      description: "Киберспортивное обучение по разным направлениям - смягчаем порог вхождения в выбранную игру для новичков.",
+      color: "from-teal-500 to-cyan-600"
     }
   ];
 
@@ -37,7 +55,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl backdrop-blur-sm group">
               <CardHeader className="text-center">

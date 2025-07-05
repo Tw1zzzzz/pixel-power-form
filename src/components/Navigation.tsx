@@ -19,6 +19,7 @@ const Navigation = () => {
     { name: "О нас", id: "about" },
     { name: "Услуги", id: "services" },
     { name: "Игры", id: "games" },
+    { name: "Достижения", id: "achievements" },
     { name: "Команда", id: "team" },
     { name: "Контакты", id: "contact" },
   ];
