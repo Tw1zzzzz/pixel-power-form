@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Gamepad2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
@@ -29,8 +29,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <Gamepad2 className="w-8 h-8 text-red-500" />
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
+              alt="Академия киберспорта"
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-bold text-white">Академия киберспорта</span>
           </div>
 
