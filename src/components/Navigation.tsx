@@ -32,10 +32,10 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
-              alt="Академия киберспорта"
+              alt="Place of Power"
               className="w-10 h-10 object-contain"
             />
-            <span className="text-xl font-bold text-white">Академия киберспорта</span>
+            <span className="text-xl font-bold text-white">Place of Power</span>
           </div>
 
           {/* Desktop Menu */}

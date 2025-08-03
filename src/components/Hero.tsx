@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
@@ -17,16 +23,18 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
         <div className="animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
+          {/* Логотип в центре */}
+          <div className="flex justify-center mb-6">
             <img 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
-              alt="Академия киберспорта"
-              className="w-24 h-24 object-contain mr-6 animate-pulse"
+              alt="Place of Power"
+              className="w-24 h-24 object-contain animate-pulse"
             />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent">
-              Академия киберспорта
-            </h1>
           </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-red-400 bg-clip-text text-transparent mb-6">
+            Place of Power
+          </h1>
           
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
             Раскройте свой киберспортивный потенциал
@@ -39,11 +47,18 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25">
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
+            >
               <Zap className="w-5 h-5 mr-2" />
               Начать тренировки
             </Button>
-            <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-4 text-lg rounded-full transition-all duration-300">
+            <Button 
+              onClick={() => scrollToSection('about')}
+              variant="outline" 
+              className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-4 text-lg rounded-full transition-all duration-300"
+            >
               Узнать больше
             </Button>
           </div>

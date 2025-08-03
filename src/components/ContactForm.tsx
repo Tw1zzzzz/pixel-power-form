@@ -18,7 +18,26 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Спасибо за заявку! Мы свяжемся с вами в ближайшее время.");
+    
+    // Формируем данные для отправки на email
+    const subject = `Новая заявка от ${formData.name}`;
+    const body = `
+Имя: ${formData.name}
+Email: ${formData.email}
+Телефон: ${formData.phone}
+Интересующая игра: ${formData.game}
+
+Сообщение:
+${formData.message}
+    `.trim();
+
+    // Создаем mailto ссылку для отправки на reksar9@mail.ru
+    const mailtoLink = `mailto:reksar9@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Открываем email клиент
+    window.location.href = mailtoLink;
+    
+    toast.success("Спасибо за заявку! Открывается ваш email клиент для отправки.");
     setFormData({ name: "", email: "", phone: "", game: "", message: "" });
   };
 
@@ -36,7 +55,7 @@ const ContactForm = () => {
           <div className="flex items-center justify-center mb-6">
             <img 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
-              alt="Академия киберспорта"
+              alt="Place of Power"
               className="w-16 h-16 object-contain mr-4"
             />
             <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -121,7 +140,7 @@ const ContactForm = () => {
                 <Mail className="w-8 h-8 text-blue-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                  <p className="text-gray-400">info@cybersport-academy.ru</p>
+                  <p className="text-gray-400">reksar9@mail.ru</p>
                 </div>
               </CardContent>
             </Card>
@@ -141,7 +160,7 @@ const ContactForm = () => {
                 <MessageCircle className="w-8 h-8 text-purple-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Telegram</h3>
-                  <p className="text-gray-400">@cybersport_academy</p>
+                  <p className="text-gray-400">@F1ife</p>
                 </div>
               </CardContent>
             </Card>

@@ -13,7 +13,7 @@ const Achievements = () => {
     {
       icon: Users,
       title: "Команды высокого уровня",
-      description: "Работа с Vega Squadron Academy, Quasar, I7, 1win Academy",
+      description: "Работа с Vega Squadron Academy, Quazar, I7, 1win Academy",
       color: "from-blue-500 to-purple-600"
     },
     {

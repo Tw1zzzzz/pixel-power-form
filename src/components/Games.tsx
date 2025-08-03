@@ -3,6 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const Games = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const games = [
     {
       title: "ТРЕНИРОВКИ ПО DOTA 2",
@@ -79,7 +85,10 @@ const Games = () => {
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                   {game.description}
                 </p>
-                <Button className="w-full bg-red-600 hover:bg-red-700 text-white rounded-full transition-all duration-300">
+                <Button 
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-red-600 hover:bg-red-700 text-white rounded-full transition-all duration-300"
+                >
                   Записаться
                 </Button>
               </CardContent>
