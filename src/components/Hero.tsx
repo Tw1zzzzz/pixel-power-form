@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -25,10 +26,10 @@ const Hero = () => {
         <div className="animate-fade-in">
           {/* Логотип в центре */}
           <div className="flex justify-center mb-6">
-            <img 
+            <OptimizedImage 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
               alt="Place of Power"
-              className="w-24 h-24 object-contain animate-pulse"
+              className="w-24 h-24 object-contain"
             />
           </div>
           
@@ -49,15 +50,15 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 animate-glow"
             >
-              <Zap className="w-5 h-5 mr-2" />
+              <Zap className="w-5 h-5 mr-2 animate-pulse" />
               Начать тренировки
             </Button>
             <Button 
               onClick={() => scrollToSection('about')}
               variant="outline" 
-              className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-4 text-lg rounded-full transition-all duration-300"
+              className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 backdrop-blur-sm"
             >
               Узнать больше
             </Button>

@@ -3,9 +3,10 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Games from "@/components/Games";
+import Achievements from "@/components/Achievements";
+import FAQ from "@/components/FAQ";
 import Team from "@/components/Team";
 import ContactForm from "@/components/ContactForm";
-import Achievements from "@/components/Achievements";
 
 const Index = () => {
   return (
@@ -28,6 +29,9 @@ const Index = () => {
       </div>
       <div id="team">
         <Team />
+      </div>
+      <div id="faq">
+        <FAQ />
       </div>
       <div id="contact">
         <ContactForm />

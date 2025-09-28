@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, Send, MessageCircle, Loader2, Twitch, Users } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
+import OptimizedImage from "./OptimizedImage";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,30 +17,130 @@ const ContactForm = () => {
     game: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // EmailJS конфигурация - замените на ваши реальные значения
+  const EMAILJS_CONFIG = {
+    serviceId: 'service_3njoeza', // Замените на ваш Service ID
+    templateId: 'template_qf27ivk', // Замените на ваш Template ID  
+    publicKey: 'AkMK-87kW94De7wzD' // Замените на ваш Public Key
+  };
+
+  // Инициализируем EmailJS
+  emailjs.init(EMAILJS_CONFIG.publicKey);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Формируем данные для отправки на email
-    const subject = `Новая заявка от ${formData.name}`;
-    const body = `
-Имя: ${formData.name}
-Email: ${formData.email}
-Телефон: ${formData.phone}
-Интересующая игра: ${formData.game}
+    setIsLoading(true);
 
-Сообщение:
-${formData.message}
-    `.trim();
+    try {
+      // Подготавливаем данные для EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        game: formData.game,
+        message: formData.message,
+        to_email: 'nababka2@gmail.com' // Ваша почта
+      };
 
-    // Создаем mailto ссылку для отправки на reksar9@mail.ru
-    const mailtoLink = `mailto:reksar9@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Открываем email клиент
-    window.location.href = mailtoLink;
-    
-    toast.success("Спасибо за заявку! Открывается ваш email клиент для отправки.");
-    setFormData({ name: "", email: "", phone: "", game: "", message: "" });
+      console.log('Отправляемые данные:', templateParams);
+      console.log('Конфигурация EmailJS:', EMAILJS_CONFIG);
+
+      // ВАРИАНТ 1: Пробуем EmailJS
+      try {
+        await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          templateParams,
+          EMAILJS_CONFIG.publicKey
+        );
+      } catch (emailjsError) {
+        console.log('EmailJS не сработал, пробуем запасной вариант через Vercel API...');
+        
+        // ВАРИАНТ 2: Запасной через Vercel API
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            game: formData.game,
+            message: formData.message
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status} ${response.statusText}`);
+        }
+        
+        const result = await response.json();
+        console.log('Успешно отправлено через API:', result);
+      }
+
+      toast.success("🎉 Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
+      setFormData({ name: "", email: "", phone: "", game: "", message: "" });
+      
+    } catch (error) {
+      console.error('Детальная ошибка EmailJS:', error);
+      
+      // Логируем все свойства объекта ошибки
+      console.log('Все свойства ошибки:', Object.keys(error || {}));
+      console.log('JSON ошибки:', JSON.stringify(error, null, 2));
+      
+      // Проверяем разные типы ошибок EmailJS
+      if (error && typeof error === 'object') {
+        console.log('status:', (error as any).status);
+        console.log('text:', (error as any).text);
+        console.log('message:', (error as any).message);
+        console.log('name:', (error as any).name);
+      }
+      
+      // Более детальное логирование
+      if (error instanceof Error) {
+        console.error('Сообщение ошибки:', error.message);
+        console.error('Тип ошибки:', error.name);
+      }
+      
+      // Конкретные сообщения об ошибках
+      let errorMessage = "❌ Ошибка отправки заявки. ";
+      
+      if (error && typeof error === 'object' && 'status' in error) {
+        const status = (error as any).status;
+        const text = (error as any).text || '';
+        
+        console.log(`Статус ошибки: ${status}, Текст: ${text}`);
+        
+        switch (status) {
+          case 400:
+            errorMessage += "Неверные параметры. Проверьте настройки EmailJS.";
+            break;
+          case 401:
+            errorMessage += "Ошибка авторизации EmailJS. Проверьте Public Key.";
+            break;
+          case 402:
+            errorMessage += "Превышен лимит отправки EmailJS.";
+            break;
+          case 404:
+            errorMessage += "Сервис или шаблон EmailJS не найден. Проверьте ID.";
+            break;
+          case 412:
+            errorMessage += "Шаблон содержит неверные переменные.";
+            break;
+          default:
+            errorMessage += `Код ошибки: ${status}. ${text || 'Попробуйте позже.'}`;
+        }
+      } else {
+        errorMessage += "Попробуйте еще раз или свяжитесь с нами напрямую.";
+      }
+      
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,7 +155,7 @@ ${formData.message}
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center mb-6">
-            <img 
+            <OptimizedImage 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
               alt="Place of Power"
               className="w-16 h-16 object-contain mr-4"
@@ -124,10 +226,20 @@ ${formData.message}
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+                    disabled={isLoading}
+                    className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-600 text-white py-3 rounded-full transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100"
                   >
-                    <Send className="w-4 h-4 mr-2" />
-                    Отправить заявку
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Отправляем...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Отправить заявку
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
@@ -140,7 +252,7 @@ ${formData.message}
                 <Mail className="w-8 h-8 text-blue-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                  <p className="text-gray-400">reksar9@mail.ru</p>
+                  <p className="text-gray-400">nababka2@gmail.com</p>
                 </div>
               </CardContent>
             </Card>
@@ -150,7 +262,7 @@ ${formData.message}
                 <Phone className="w-8 h-8 text-green-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Телефон</h3>
-                  <p className="text-gray-400">+7 (999) 123-45-67</p>
+                  <p className="text-gray-400">8-968-612-17-00</p>
                 </div>
               </CardContent>
             </Card>
@@ -170,7 +282,31 @@ ${formData.message}
                 <MessageCircle className="w-8 h-8 text-green-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">WhatsApp</h3>
-                  <p className="text-gray-400">+7 (999) 123-45-67</p>
+                  <p className="text-gray-400">8-968-612-17-00</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm hover:border-purple-500 transition-all duration-300">
+              <CardContent className="p-6 flex items-center">
+                <Twitch className="w-8 h-8 text-purple-400 mr-4" />
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Twitch</h3>
+                  <a href="https://twitch.tv/placeofpower" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    twitch.tv/placeofpower
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm hover:border-indigo-500 transition-all duration-300">
+              <CardContent className="p-6 flex items-center">
+                <Users className="w-8 h-8 text-indigo-400 mr-4" />
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Discord</h3>
+                  <a href="https://discord.gg/placeofpower" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors">
+                    discord.gg/placeofpower
+                  </a>
                 </div>
               </CardContent>
             </Card>

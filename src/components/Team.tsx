@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import OptimizedImage from "./OptimizedImage";
 
 const Team = () => {
   const trainers = [
@@ -33,7 +34,7 @@ const Team = () => {
             <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm group">
               <CardContent className="p-6 text-center">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-blue-400 transition-all duration-300">
-                  <img 
+                  <OptimizedImage 
                     src={trainer.image} 
                     alt={trainer.name}
                     className="w-full h-full object-cover"

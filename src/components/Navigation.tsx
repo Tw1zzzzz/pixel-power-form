@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "./OptimizedImage";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ const Navigation = () => {
     { name: "Игры", id: "games" },
     { name: "Достижения", id: "achievements" },
     { name: "Команда", id: "team" },
+    { name: "FAQ", id: "faq" },
     { name: "Контакты", id: "contact" },
   ];
 
@@ -30,7 +32,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
+            <OptimizedImage 
               src="/lovable-uploads/5da7a7cd-8dae-461d-a1b6-556993f9a88e.png" 
               alt="Place of Power"
               className="w-10 h-10 object-contain"
@@ -49,6 +51,14 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* CTA Button */}
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 ml-4"
+            >
+              Записаться
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,6 +87,14 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+              
+              {/* Mobile CTA Button */}
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 mt-4"
+              >
+                Записаться на тренировку
+              </Button>
             </div>
           </div>
         )}

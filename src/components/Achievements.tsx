@@ -25,13 +25,13 @@ const Achievements = () => {
     {
       icon: Star,
       title: "Индивидуальные успехи",
-      description: "Подняли игроков с нуля до 2700 и 2200 Elo (Faceit)",
+      description: "Подняли игроков с нуля до 2700 и 2200 Elo (Faceit). Выход в ESEA Main",
       color: "from-red-500 to-pink-600"
     },
     {
       icon: Award,
       title: "Мультикастинг",
-      description: "CS:GO, Dota 2, Rainbow Six, LoL для Storm Studio, StarLadder",
+      description: "CS2, Dota2, Fifa, LoL. Опыт работы в RuHUB, UCC, Storm Studio и др.",
       color: "from-purple-500 to-indigo-600"
     },
     {
@@ -73,44 +73,7 @@ const Achievements = () => {
           ))}
         </div>
 
-        {/* Key Competencies */}
-        <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 backdrop-blur-sm border border-gray-700">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">Ключевые компетенции</h3>
-          <div className="grid md:grid-cols-2 gap-6 text-gray-300">
-            <div>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Построение тренировочных процессов и KPI
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Быстрый вывод новых составов на соревновательный уровень
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Аналитика матчей и разработка тактики
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Развитая сеть контактов в СНГ и MENA
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Управление персоналом и P&L подразделений
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
-                  Профильное образование "тренер по спорту"
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

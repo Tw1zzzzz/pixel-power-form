@@ -57,15 +57,18 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl backdrop-blur-sm group">
-              <CardHeader className="text-center">
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${service.color} p-4 group-hover:shadow-lg transition-all duration-300`}>
+            <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-blue-500/50 transition-all duration-500 hover:transform hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 backdrop-blur-sm group relative overflow-hidden">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <CardHeader className="text-center relative z-10">
+                <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${service.color} p-4 group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500 group-hover:animate-pulse-slow`}>
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-xl text-white mb-2">{service.title}</CardTitle>
+                <CardTitle className="text-xl text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-300 leading-relaxed">
+              <CardContent className="relative z-10">
+                <CardDescription className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                   {service.description}
                 </CardDescription>
               </CardContent>
