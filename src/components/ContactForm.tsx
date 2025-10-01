@@ -41,7 +41,7 @@ const ContactForm = () => {
         phone: formData.phone,
         game: formData.game,
         message: formData.message,
-        to_email: 'nababka2@gmail.com' // Ваша почта
+        to_email: 'reksar9@mail.ru' // Ваша почта
       };
 
       console.log('Отправляемые данные:', templateParams);
@@ -252,7 +252,7 @@ const ContactForm = () => {
                 <Mail className="w-8 h-8 text-blue-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                  <p className="text-gray-400">nababka2@gmail.com</p>
+                  <p className="text-gray-400">reksar9@mail.ru</p>
                 </div>
               </CardContent>
             </Card>
@@ -292,8 +292,8 @@ const ContactForm = () => {
                 <Twitch className="w-8 h-8 text-purple-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Twitch</h3>
-                  <a href="https://twitch.tv/placeofpower" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    twitch.tv/placeofpower
+                  <a href="https://twitch.tv/mrflifetv" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    twitch.tv/mrflifetv
                   </a>
                 </div>
               </CardContent>
@@ -304,8 +304,8 @@ const ContactForm = () => {
                 <Users className="w-8 h-8 text-indigo-400 mr-4" />
                 <div>
                   <h3 className="text-lg font-semibold text-white">Discord</h3>
-                  <a href="https://discord.gg/placeofpower" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors">
-                    discord.gg/placeofpower
+                  <a href="https://discord.gg/Flife" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors">
+                    discord.gg/Flife
                   </a>
                 </div>
               </CardContent>
