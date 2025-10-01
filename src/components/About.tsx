@@ -62,12 +62,9 @@ const About = () => {
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="text-red-500 mr-2">•</span>
-                      Развитая сеть контактов в СНГ и MENA
+                      Сеть контактов по всей России
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      Управление персоналом и P&L подразделений
-                    </li>
+
                     <li className="flex items-start">
                       <span className="text-red-500 mr-2">•</span>
                       Профильное образование "тренер по спорту"

@@ -37,7 +37,7 @@ const Achievements = () => {
     {
       icon: TrendingUp,
       title: "Управленческий опыт",
-      description: "Руководство филиалами, спортивное директорство, кризис-менеджмент",
+      description: "Руководство филиалами, спортивное директорство.",
       color: "from-teal-500 to-cyan-600"
     }
   ];
