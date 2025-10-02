@@ -7,6 +7,7 @@ import Achievements from "@/components/Achievements";
 import FAQ from "@/components/FAQ";
 import Team from "@/components/Team";
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -36,6 +37,7 @@ const Index = () => {
       <div id="contact">
         <ContactForm />
       </div>
+      <Footer />
     </div>
   );
 };
