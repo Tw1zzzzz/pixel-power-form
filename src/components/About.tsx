@@ -67,7 +67,7 @@ const About = () => {
 
                     <li className="flex items-start">
                       <span className="text-red-500 mr-2">•</span>
-                      Профильное образование "тренер по спорту"
+                      Профессиональное образования тренера спорта
                     </li>
                   </ul>
                 </div>
